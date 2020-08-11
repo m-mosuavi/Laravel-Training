@@ -15,4 +15,23 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+})->name("Home");
+
+// Route::get('/','TasksController@index')->name('Home');
+// Route::get('tasks/create','TasksController@create');
+// Route::post('tasks','TaskController@store');
+
+Route::resource('task','TaskController');
+
+Route::get('about',function(){
+    return view('about');
+})->name('about');
+
+Route::get('user/{id}',function($id){
+
+})->where([]);
+
+Route::fallback(function(){
+    return view();
 });
+
